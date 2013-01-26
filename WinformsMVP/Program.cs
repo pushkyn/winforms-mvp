@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using WinformsMVP.Model;
 using WinformsMVP.Presenter;
 using WinformsMVP.View;
 
@@ -17,7 +18,7 @@ namespace WinformsMVP
             Application.SetCompatibleTextRenderingDefault(false);
 
             var view = new CustomerForm();
-            var presenter = new CustomerPresenter(view);
+            var presenter = new CustomerPresenter(view, new CustomerXmlRepository());
             Application.Run(view);
         }
     }
