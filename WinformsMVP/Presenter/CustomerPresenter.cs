@@ -26,6 +26,7 @@ namespace WinformsMVP.Presenter
         {
             var customer = _view.GetCustomer();
             _repository.Create(customer);
+            _view.Clear();
             LoadCustomers();
         }
 

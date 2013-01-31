@@ -17,9 +17,13 @@ namespace WinformsMVP
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            var view = new CustomerForm();
-            var presenter = new CustomerPresenter(view, new CustomerXmlRepository());
-            Application.Run(view);
+            var container = new IoCContainer();
+            container.Register<ICustomerRepository, CustomerXmlRepository>();
+            container.Register<ICustomerView, CustomerForm>();
+
+            var view = container.Resolve<ICustomerView>();
+            var presenter = new CustomerPresenter(view, container.Resolve<ICustomerRepository>());
+            Application.Run((Form) view);
         }
     }
 }
