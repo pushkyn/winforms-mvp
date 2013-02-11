@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using WinformsMVP.Model;
+using WinformsMVP.Presenter;
 
 namespace WinformsMVP.View
 {
@@ -72,6 +73,17 @@ namespace WinformsMVP.View
             {
                 CustomerSelected(sender, e);
             }
+        }
+
+        private void buttonNotes_Click(object sender, EventArgs e)
+        {
+            var container = new IoCContainer();
+            container.Register<INoteRepository, NoteFileRepository>();
+            container.Register<INoteView, NoteForm>();
+
+            var view = container.Resolve<INoteView>();
+            var presenter = new NotePresenter(view, container.Resolve<INoteRepository>());
+            ((Form) view).ShowDialog();
         }
     }
 }

@@ -39,6 +39,7 @@
             this.textBoxCustomer = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.buttonDelete = new System.Windows.Forms.Button();
+            this.buttonNotes = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -141,11 +142,21 @@
             this.buttonDelete.UseVisualStyleBackColor = true;
             this.buttonDelete.Click += new System.EventHandler(this.ButtonDeleteClick);
             // 
+            // buttonNotes
+            // 
+            this.buttonNotes.Location = new System.Drawing.Point(138, 175);
+            this.buttonNotes.Name = "buttonNotes";
+            this.buttonNotes.Size = new System.Drawing.Size(71, 23);
+            this.buttonNotes.TabIndex = 8;
+            this.buttonNotes.Text = "Notes";
+            this.buttonNotes.Click += new System.EventHandler(this.buttonNotes_Click);
+            // 
             // CustomerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(390, 215);
+            this.Controls.Add(this.buttonNotes);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.textBoxCustomer);
             this.Controls.Add(this.buttonDelete);
@@ -173,5 +184,6 @@
         private System.Windows.Forms.TextBox textBoxCustomer;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button buttonDelete;
+        private System.Windows.Forms.Button buttonNotes;
     }
 }
